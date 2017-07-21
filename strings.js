@@ -26,7 +26,7 @@ function setTestString() { //Because we had to use the testString variable, had 
 
 
 button.addEventListener("click", function(){
-  if(input.validity.patternMismatch === true) { //test whether the validity of the patternMismatch is true(meaning the pattern is NOT matched). If true alerts the inputs title.
+  if(input.validity.patternMismatch === true || input.value === "") { //test whether the validity of the patternMismatch is true(meaning the pattern is NOT matched). If true alerts the inputs title.
     alert(input.title)
   } else { //If false then runs the functions defined and sets a timeout of 3 seconds just so multiple entries are not on the page if user decides to try again.
     setTestString();
@@ -42,7 +42,7 @@ button.addEventListener("click", function(){
 
 input.addEventListener("keyup", function(e){ //Same process as above just for the input area when the enter key is released. (Note the input area cannot be in a form tag with POST, otherwise 405 Method not allowed html error occurs)
   if(e.keyCode === 13) {
-    if(input.validity.patternMismatch === true) {
+    if(input.validity.patternMismatch === true || input.value === "") {
       alert(input.title)
     } else {
       setTestString();
